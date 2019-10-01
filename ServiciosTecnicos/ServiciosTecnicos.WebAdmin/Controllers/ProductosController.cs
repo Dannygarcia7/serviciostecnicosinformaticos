@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace ServiciosTecnicos.WebAdmin.Controllers
 {
-    [Authorize]
+    
     public class ProductosController : Controller
     {
         ProductosBL _productosBL;
