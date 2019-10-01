@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ServiciosTecnicos.WebAdmin.Controllers
 {
-   
+    [Authorize]
     public class HomeController : Controller
     {
         // GET: Home
