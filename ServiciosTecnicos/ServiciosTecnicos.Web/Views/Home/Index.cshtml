@@ -13,38 +13,39 @@
             <!-- section title -->
             <div class="col-md-12">
                 <div class="section-title">
-                    <h3 class="title">Los Mejores Accesorios</h3>
+                    <h3 class="title">Ofrecemos los siguientes Servicios</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
                             <li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
                             <li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
                             <li><a data-toggle="tab" href="#tab2">Cameras</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Accessories</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Accesorios</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- /section title -->
-            @foreach (var producto in Model
-                                        .Where(r=> r.Categoria.Descripcion == "Accesorios")
-                                        .Take(4)
-                                        .OrderBy(r=>Guid.NewGuid())
-                     )
-            {
+            
                 <!-- Products tab & slick -->
                 <div class="col-md-12">
                     <div class="row">
                         <div class="products-tabs">
                             <!-- tab -->
-                            <div id="tab2" class="tab-pane fade in active">
+                            
                                 <div class="products-slick" data-nav="#slick-nav-2">
+                                  @foreach (var producto in Model
+                                                    .Where(r=> r.Categoria.Descripcion == "Auditoria")
+                                                    .Take(1)
+                                                    .OrderBy(r => Guid.NewGuid())
+                                 )
+                                  {
                                     <!-- product -->
                                     <div class="product">
                                         <div class="product-img">
                                             <img src="@(ViewBag.AdminWebSiteUrl + producto.UrlImagen)" alt="">
                                             <div class="product-label">
                                                 <span class="sale">-30%</span>
-                                                <span class="new">NEW</span>
+                                                <span class="new">Nuevo</span>
                                             </div>
                                         </div>
                                         <div class="product-body">
@@ -59,33 +60,144 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                             <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a la Lista</span></button>
+                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Compara</span></button>
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Rapida</span></button>
                                             </div>
                                         </div>
                                         <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir al Carrito</button>
                                         </div>
                                     </div>
                                     <!-- /product -->
+                                  }
 
+                                @foreach (var producto in Model
+                                                                .Where(r => r.Categoria.Descripcion == "Configuracion")
+                                                                .Take(1)
+                                                                .OrderBy(r => Guid.NewGuid())
+                                             )
+                                {
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="@(ViewBag.AdminWebSiteUrl + producto.UrlImagen)" alt="">
+                                            <div class="product-label">
+                                                <span class="sale">-30%</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">@producto.Categoria.Descripcion</p>
+                                            <h3 class="product-name"><a href="#">@producto.Descripcion</a></h3>
+                                            <h4 class="product-price">L @producto.Precio </h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a la Lista</span></button>
+                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar</span></button>
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Rapida</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir al Carrito</button>
+                                        </div>
+                                    </div>
+                                    <!-- /product -->
+                                }
+
+                                @foreach (var producto in Model
+                                                            .Where(r => r.Categoria.Descripcion == "Mantenimiento")
+                                                            .Take(1)
+                                                            .OrderBy(r => Guid.NewGuid())
+                                                         )
+                                {
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="@(ViewBag.AdminWebSiteUrl + producto.UrlImagen)" alt="">
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">@producto.Categoria.Descripcion</p>
+                                            <h3 class="product-name"><a href="#">@producto.Descripcion</a></h3>
+                                            <h4 class="product-price">L @producto.Precio </h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a la Lista</span></button>
+                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar</span></button>
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Rapida</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Añadir al Carrito</button>
+                                        </div>
+                                    </div>
+                                    <!-- /product -->
+                                }
+
+                                @foreach (var producto in Model
+                                                            .Where(r => r.Categoria.Descripcion == "Instalacion")
+                                                            .Take(1)
+                                                            .OrderBy(r => Guid.NewGuid())
+                                                            
+                                                         )
+                                {
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="@(ViewBag.AdminWebSiteUrl + producto.UrlImagen)" alt="">
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">@producto.Categoria.Descripcion</p>
+                                            <h3 class="product-name"><a href="#">@producto.Descripcion</a></h3>
+                                            <h4 class="product-price">L @producto.Precio </h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir a la Lista</span></button>
+                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comparar</span></button>
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Rapida</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir al Carrito</button>
+                                        </div>
+                                    </div>
+                                    <!-- /product -->
+                                }
                                 </div>
-                                <div id="slick-nav-2" class="products-slick-nav"></div>
+                                <!--terminar los productos-->    
                             </div>
+                                
+                           
                             <!-- /tab -->
                         </div>
                     </div>
-                </div>
             <!-- /Products tab & slick -->
-            }
-            
         </div>
         <!-- /row -->
     </div>
     <!-- /container -->
 </div>
 <!-- /SECTION -->
+
+
+
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
@@ -94,7 +206,7 @@
         <div class="row">
             <div class="col-md-4 col-xs-6">
                 <div class="section-title">
-                    <h4 class="title">Escoja uno de Nuestros Servicios</h4>
+                    <h4 class="title">Accesorios</h4>
                     <div class="section-nav">
                         <div id="slick-nav-3" class="products-slick-nav"></div>
                     </div>
@@ -103,7 +215,7 @@
                 <div class="products-widget-slick" data-nav="#slick-nav-3">
                     
                     @foreach (var producto in Model
-                    .Where(r=> r.Categoria.Descripcion == "Servicios")
+                    .Where(r=> r.Categoria.Descripcion == "Accesorios")
                     .Take(4)
                     .OrderBy(r=>Guid.NewGuid()))
                     {
